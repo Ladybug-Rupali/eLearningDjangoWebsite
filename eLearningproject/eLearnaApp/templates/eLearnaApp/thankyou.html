@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        /* Internal CSS for the thank you page */
+        :root {
+            --primary: #06BBCC;
+            --light: #F0FBFC;
+            --dark: #181d38;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out 0.5s;
+        }
+        
+        .thank-you-image {
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+            animation: bounceIn 1s ease-in-out;
+        }
+        
+        .back-to-home {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out 1s;
+        }
+        
+        .back-to-home:hover {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'eLearnaApp\img\thanks.png' %}" alt="Thank You" class="thank-you-image">
+        <h1>Thank You for Contacting Us!</h1>
+        <p>We appreciate your message and will get back to you as soon as possible.</p>
+        <a href="{% url 'index' %}" class="back-to-home">Back to Home</a>
+    </div>
+</body>
+</html>
