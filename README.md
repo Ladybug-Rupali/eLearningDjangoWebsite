@@ -124,4 +124,4 @@ This project uses a free template from [Free CSS eLearning Template](https://www
 
 ### Contact
 
-For any questions, please contact [rplsgrv@gmail.com](mailto:rplsgrv@gmail.com).
+For any questions, please contact [rupaligurav0306@gmail.com](mailto:rupaligurav0306@gmail.com).
