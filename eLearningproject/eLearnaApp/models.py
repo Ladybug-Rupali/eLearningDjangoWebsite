@@ -14,11 +14,10 @@ class Contact(models.Model):
     
     
 
+    
+class NewsletterSubscription(models.Model):
+    email = models.EmailField(unique=True,max_length=254)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
 
-
-class EmailInput(models.Model):
-    email = models.EmailField(max_length=254, unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.email
+    def _str_(self):
+        return self.email 

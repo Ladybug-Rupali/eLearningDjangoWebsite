@@ -1,10 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from eLearnaApp.models import *
 from django.http import HttpResponse
-from .forms import EmailInputForm
+from .forms import NewsletterSubscriptionForm
 
 
 # Create your views here.
+
+def view_base(request):
+    resp = render(request,'eLeranaApp/base.html')
+    return resp
 
 
 def view_index(request):
@@ -51,26 +56,22 @@ def view_thankyou(request):
     resp = render(request,'eLearnaApp/thankyou.html')
     return resp
 
+def view_thanks(request):
+    resp = render(request,'eLearnaApp/newletterthanks.html')
+    return resp
 
-# def view_email(request):
-#     if request.method=="POST":
-#         if 'signup' in request.POST:
-#             e1 = EmailInput()
-#             e1.email = request.POST.get('email1')
-#             e1.save()
-#     resp = HttpResponse("<h1>Submitted</h1>")
-#     return resp
+def subscribe_newsletter(request):
+    if request.method == 'POST':
+        form = NewsletterSubscriptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            resp = render(request,'eLearnaApp/newletterthanks.html')
+            return resp
+           
+        else:
+            form = NewsletterSubscriptionForm()
+            return render(request, 'eLearnaApp/index.html',{'form':form})
 
 
-# def email_input_view(request):
-#     if request.method == 'POST':
-#         if 'signup' in request.POST:
-#             form = EmailInputForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#                 return HttpResponse("<h1>Submitted</h1>")
-#             else:
-#                 form = EmailInputForm()
 
-#             # If form is not valid or GET request, render the base template with form
-#             return render(request, 'eLearnaApp/contact.html')
+

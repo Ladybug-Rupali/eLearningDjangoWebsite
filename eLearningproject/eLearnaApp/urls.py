@@ -12,6 +12,9 @@ urlpatterns = [
     path('testimonial/',view_testimonial,name='testimonial'),
     path('404/',view_404,name='404'),
     path('thankyou/',view_404,name='thankyou'),
+    path('base/',view_base,name='base'),
+    path('newsletter/', subscribe_newsletter, name='newsletter'),
+    path('thanks/', view_thanks, name='thanks'),
 
 
     

@@ -1,7 +1,8 @@
+# forms.py
 from django import forms
-from .models import EmailInput
+from .models import NewsletterSubscription
 
-class EmailInputForm(forms.ModelForm):
+class NewsletterSubscriptionForm(forms.ModelForm):
     class Meta:
-        model = EmailInput
+        model = NewsletterSubscription
         fields = ['email']
